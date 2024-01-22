@@ -2,13 +2,14 @@ const apiKey = 'Mzg0NzY2Mjl8MTcwMDcwNDA4NS45NjQ1Mzg';
 
 // Function to fetch weather data from OpenWeatherMap API
 function getWeatherData(city) {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+    const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
-    fetch(apiUrl)
+    fetch(currentWeatherUrl)
         .then(response => response.json())
         .then(data => {
             updateCurrentWeather(data);
-            return fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`);
+            const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
+            return fetch(forecastUrl);
         })
         .then(response => response.json())
         .then(data => {
@@ -34,6 +35,7 @@ function updateCurrentWeather(data) {
     `;
 }
 
+// Function to update the forecast section
 function updateForecast(data) {
     const forecastCards = document.getElementById('forecast-cards');
     forecastCards.innerHTML = ''; // Clear previous forecast cards
@@ -62,7 +64,6 @@ function updateForecast(data) {
     }
 }
 
-
 // Function to update the search history section
 function updateSearchHistory(city) {
     const searchHistory = document.getElementById('search-history');
@@ -85,5 +86,6 @@ document.getElementById('search-history').addEventListener('click', function (e)
         getWeatherData(cityName);
     }
 });
+
 
 
