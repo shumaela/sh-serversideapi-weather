@@ -1,4 +1,4 @@
-const apiKey = 'Mzg0NzY2Mjl8MTcwMDcwNDA4NS45NjQ1Mzg'; 
+var API_KEY = '30ec1a0d631d512be1b94bec0f940c3d';
 
 // Function to fetch weather data from OpenWeatherMap API
 function getWeatherData(city) {
