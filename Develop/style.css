@@ -1,12 +1,16 @@
-body {
-    font-family: 'Arial', sans-serif;
+/* Reset some default styles and apply a global font-family */
+body, h1, h2, p {
     margin: 0;
     padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
     background-color: #f5f5f5;
 }
 
 .weather-container {
-    max-width: 400px;
+    max-width: 600px;
     margin: 50px auto;
     padding: 20px;
     background-color: #fff;
@@ -15,13 +19,80 @@ body {
     text-align: center;
 }
 
-h1 {
+h1, h2 {
     color: #333;
 }
 
-#temperature,
-#description {
+/* Form styling */
+#search-form {
     margin-top: 20px;
-    font-size: 18px;
-    color: #555;
+    display: flex;
+    justify-content: center;
 }
+
+#search-form label {
+    margin-right: 10px;
+}
+
+#search-form input {
+    padding: 8px;
+    margin-right: 10px;
+}
+
+#search-form button {
+    padding: 8px 12px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Current Weather and Forecast styling */
+#current-weather,
+#forecast {
+    margin-top: 20px;
+}
+
+.forecast-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Add specific styles for forecast cards */
+.forecast-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.forecast-card {
+    width: 48%; /* Adjust based on your layout preferences */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+
+/* Search History styling */
+#search-history {
+    margin-top: 30px;
+}
+
+#search-history h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#search-history li {
+    list-style: none;
+    margin-bottom: 5px;
+    cursor: pointer;
+    color: #007BFF;
+}
+
+/* Add any other styling as needed */
+
+

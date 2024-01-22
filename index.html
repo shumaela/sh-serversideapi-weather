@@ -13,8 +13,33 @@
 <body>
     <div class="weather-container">
         <h1>Weather Dashboard</h1>
-        <div id="temperature"></div>
-        <div id="description"></div>
+
+        <!-- Search Form -->
+        <form id="search-form">
+            <label for="city-input">Enter City:</label>
+            <input type="text" id="city-input" placeholder="City Name" required>
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- Current Weather -->
+        <div id="current-weather">
+            <!-- Display current weather information here -->
+        </div>
+
+       
+        <div id="forecast">
+            <h2>5-Day Forecast</h2>
+            <div class="forecast-cards" id="forecast-cards">
+                <!-- Forecast cards will be dynamically added here -->
+            </div>
+        </div>
+
+
+        <!-- Search History -->
+        <div id="search-history">
+            <h2>Search History</h2>
+            <!-- Display search history here -->
+        </div>
     </div>
 
     <script src="Develop/script.js"></script>
