@@ -1,26 +1,33 @@
 /* Reset some default styles and apply a global font-family */
-body, h1, h2, p {
+body,
+h1,
+h2,
+p {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    /* font-family: 'Arial', sans-serif; */
+    font-family: monospace;
 }
 
 body {
-    background-color: #f5f5f5;
+    /* background-color: #f5f5f5; */
+    background-color: black;
 }
 
 .weather-container {
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #fff;
+    /* background-color: #fff; */
+    background-color: #102f86;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     text-align: center;
 }
 
-h1, h2 {
-    color: #333;
+h1,
+h2 {
+    color: #b5c3e8;
 }
 
 /* Form styling */
@@ -51,6 +58,7 @@ h1, h2 {
 #current-weather,
 #forecast {
     margin-top: 20px;
+    color: #fff;
 }
 
 .forecast-item {
@@ -65,15 +73,19 @@ h1, h2 {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    /* color: #fff; */
 }
 
 .forecast-card {
-    width: 48%; /* Adjust based on your layout preferences */
+    width: 48%;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 10px;
     margin-bottom: 15px;
+    color: #fff;
 }
+
+/* Adjust based on your layout preferences
 
 
 /* Search History styling */
@@ -82,7 +94,8 @@ h1, h2 {
 }
 
 #search-history h2 {
-    color: #333;
+    /* color: #333; */
+    color: #b5c3e8;
     margin-bottom: 10px;
 }
 
@@ -90,9 +103,7 @@ h1, h2 {
     list-style: none;
     margin-bottom: 5px;
     cursor: pointer;
-    color: #007BFF;
+    color: #fff;
 }
 
 /* Add any other styling as needed */
-
-
