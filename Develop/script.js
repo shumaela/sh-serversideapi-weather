@@ -81,9 +81,18 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to update the search history section
     function updateSearchHistory(city) {
         const searchHistory = document.getElementById('search-history');
-        const listItem = document.createElement('li');
-        listItem.textContent = city;
-        searchHistory.appendChild(listItem);
+        const cities = JSON.parse(localStorage.getItem('cities')) || [];
+
+        // Check if the city is not already in the search history
+        if (!cities.includes(city)) {
+            const listItem = document.createElement('li');
+            listItem.textContent = city;
+            searchHistory.appendChild(listItem);
+
+            // Add the city to the local storage
+            cities.push(city);
+            localStorage.setItem('cities', JSON.stringify(cities));
+        }
     }
 
     // Event listener for form submission
@@ -99,6 +108,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const cityName = e.target.textContent;
             getWeatherData(cityName);
         }
+    });
+    // Load initial search history from localStorage
+    const cities = JSON.parse(localStorage.getItem('cities')) || [];
+    const searchHistory = document.getElementById('search-history');
+    cities.forEach(city => {
+        const listItem = document.createElement('li');
+        listItem.textContent = city;
+        searchHistory.appendChild(listItem);
     });
 });
 

@@ -32,8 +32,9 @@ A weather dashboard application where the user can search for any city and find 
 ```
 https://shumaela.github.io/sh-serversideapi-weather/
 
-## Screenshot
+
+## Screenshot 
 
 ```
-![weather serverside-api image](https://github.com/shumaela/sh-serversideapi-weather/assets/147661185/01a75c58-f20f-4b60-bd2e-cb48d569eb90)
+![weather serverside-api](https://github.com/shumaela/sh-serversideapi-weather/assets/147661185/2b8bfa14-84ca-44a2-ba73-39c65bec4648)
 
