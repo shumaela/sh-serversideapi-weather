@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const apiKey = '30ec1a0d631d512be1b94bec0f940c3d'; 
+    const apiKey = '30ec1a0d631d512be1b94bec0f940c3d';
 
     // Function to fetch weather data from OpenWeatherMap API
     function getWeatherData(city) {
@@ -26,12 +26,15 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to update the current-weather section
     function updateCurrentWeather(data) {
         const currentWeather = document.getElementById('current-weather');
+        const iconCode = data.weather[0].icon; // Extract icon code from the API response
+        const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`; // Construct icon URL
         currentWeather.innerHTML = `
             <h2>${data.name}</h2>
             <p>Date: ${new Date().toLocaleDateString()}</p>
-            <p>Temperature: ${data.main.temp} °C</p>
+            <p>Temperature: ${data.main.temp} (°F)</p>
             <p>Humidity: ${data.main.humidity}%</p>
-            <p>Wind Speed: ${data.wind.speed} m/s</p>
+            <p>Wind Speed: ${data.wind.speed} mph</p>
+            <img src="${iconUrl}" alt="Weather Icon">
             <!-- Add icon representation of weather conditions here -->
         `;
     }
@@ -48,15 +51,19 @@ document.addEventListener('DOMContentLoaded', function () {
             const temperature = forecastData.main.temp;
             const humidity = forecastData.main.humidity;
             const windSpeed = forecastData.wind.speed;
+            const iconCode = forecastData.weather[0].icon; // Extract icon code from the API response
+            const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`; // Construct icon URL
+
 
             // Create forecast card
             const card = document.createElement('div');
             card.classList.add('forecast-card');
             card.innerHTML = `
                 <p>Date: ${date}</p>
-                <p>Temperature: ${temperature} °C</p>
+                <p>Temperature: ${temperature} (°F)</p>
                 <p>Humidity: ${humidity}%</p>
-                <p>Wind Speed: ${windSpeed} m/s</p>
+                <p>Wind Speed: ${windSpeed} mph</p>
+                <img src="${iconUrl}" alt="Weather Icon">
                 <!-- Add icon representation of weather conditions here -->
             `;
 
