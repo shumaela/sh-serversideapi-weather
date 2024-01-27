@@ -28,10 +28,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const currentWeather = document.getElementById('current-weather');
         const iconCode = data.weather[0].icon; // Extract icon code from the API response
         const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`; // Construct icon URL
+        const temperatureFahrenheit = convertKelvinToFahrenheit(data.main.temp); // Convert Kelvin to Fahrenheit
         currentWeather.innerHTML = `
             <h2>${data.name}</h2>
             <p>Date: ${new Date().toLocaleDateString()}</p>
-            <p>Temperature: ${data.main.temp} (°F)</p>
+            <p>Temperature: ${temperatureFahrenheit.toFixed(2)} (°F)</p>
             <p>Humidity: ${data.main.humidity}%</p>
             <p>Wind Speed: ${data.wind.speed} mph</p>
             <img src="${iconUrl}" alt="Weather Icon">
@@ -48,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let i = 0; i < data.list.length; i += 8) { // Update every 8th record for a 24-hour interval
             const forecastData = data.list[i];
             const date = new Date(forecastData.dt_txt).toLocaleDateString();
-            const temperature = forecastData.main.temp;
+            const temperatureFahrenheit = convertKelvinToFahrenheit(forecastData.main.temp); // Convert Kelvin to Fahrenheit
             const humidity = forecastData.main.humidity;
             const windSpeed = forecastData.wind.speed;
             const iconCode = forecastData.weather[0].icon; // Extract icon code from the API response
@@ -60,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
             card.classList.add('forecast-card');
             card.innerHTML = `
                 <p>Date: ${date}</p>
-                <p>Temperature: ${temperature} (°F)</p>
+                <p>Temperature: ${temperatureFahrenheit.toFixed(2)} (°F)</p>
                 <p>Humidity: ${humidity}%</p>
                 <p>Wind Speed: ${windSpeed} mph</p>
                 <img src="${iconUrl}" alt="Weather Icon">
@@ -70,6 +71,11 @@ document.addEventListener('DOMContentLoaded', function () {
             // Append the card to the forecast cards container
             forecastCards.appendChild(card);
         }
+    }
+
+    // Function to convert temperature from Kelvin to Fahrenheit
+    function convertKelvinToFahrenheit(kelvin) {
+        return (kelvin - 273.15) * 9 / 5 + 32;
     }
 
     // Function to update the search history section
